@@ -1,0 +1,125 @@
+body {
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    h1 {
+        color: #fc4445;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+        background-color: rgba(240,240,240,0.6);
+        box-shadow: 10px 5px 5px rgba(240,240,240,0.5) ;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5%;
+
+        .addItemWrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            text-align: left;
+
+            .inputSection {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 1%;
+                
+            }
+        }
+        .buttonDiv {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 1%;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+
+        .showTasks {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
+            .showPrioAndDesc {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                text-align: left;
+
+                .taskHeader {
+                    text-decoration: underline;
+                }
+                
+                .showPrio {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    .highPriority {
+                        color: #fc4445;
+                    }
+                    .lowPriority {
+                        color: blue;
+                    }
+                }
+            }
+            .showDeadlineAndFeatures{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .showLinksForFeatures{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+
+                    input[type=checkbox] {
+                        height: 25px;
+                        width: 25px;  
+                    }
+                    .trashIcon {
+                        color: #fc4445; 
+                        transition: 0.3s;
+                    }
+                    .trashIcon:hover {
+                        color: darkred;
+                        transition: color 0.3s ease-in-out;
+                    }
+                    .edit {
+                        transition: 0.3s ease-in-out;
+                    }
+                    .edit:hover {
+                        color: darkblue;
+                        transition: color 0.3s ease-in-out;
+                    }   
+                }
+            }
+        }
+
+        .pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            a {
+                margin-left: 5%;
+                font-size: 150%;
+                text-decoration: none;
+                transition: 0.3s ease-in-out;
+            }
+            .currentPage {
+                text-decoration: underline;
+            }
+        }
+        .emptyTodoOnPage {
+            margin-top: 2%;
+            font-size: 150%;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+      
+
+    }
+}

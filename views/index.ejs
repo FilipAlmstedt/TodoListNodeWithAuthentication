@@ -1,0 +1,112 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container">
+        <div class="addItemWrapper">
+            <%- include("addItem.ejs")%>
+        </div>        
+
+        <hr>
+
+        <div class="buttonDiv">
+            <button class="btn btn-primary"><a href="/?page=<%=currentPage%>&&sortedDate=1"> Sort Date <i class="fas fa-sort-numeric-down"></i> </a></button>
+            <button class="btn btn-primary"><a href="/?page=<%=currentPage%>&&sortedDate=-1"> Sort Date <i class="fas fa-sort-numeric-up-alt"></i> </a></button>
+        </div>
+
+        <%  if(typeof error !== undefined && error !=="emptyString") { %>
+            <%- include("error.ejs") %>
+        <% } %>
+
+        <% for(let i=0; i<data.length; i++) { %>
+            <hr>
+            <div class="showTasks">
+                <div class="showPrioAndDesc">
+                    <% if(data[i].priority == "HIGH") { %>
+                        <div class="showPrio">
+                            <h5>Priority: </h5>
+                            <h5 class="highPriority"> <%= data[i].priority%></h5>
+                        </div>
+                    <% } else {%>
+                        <div class="showPrio">
+                            <h5>Priority: </h5>
+                            <h5 class="lowPriority"> <%= data[i].priority%></h5>
+                        </div>
+                    <% } %> 
+                    <h6 class="taskHeader">Task to do</h6>
+                    <p><%= data[i].description%></p>
+                </div>
+                <div class="showDeadlineAndFeatures">
+                    <p><b>Deadline:</b> <%= data[i].deadlineDate.getFullYear()%>-<%= data[i].deadlineDate.getMonth()+1%>-<%= data[i].deadlineDate.getDate()%></p>
+
+                    <!--Show only days-->
+                    <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() == 0 ) { %>
+                        <p><b>Time Left:</b> <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
+                    <% } %>
+                    <!--Show month and date-->
+                    <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() !== 0) { %>
+                        <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
+                            <p><b>Time Left:</b> <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
+                        <% } %>
+                    <% } %>
+
+                     <!--Show year, month and days-->
+                     <% if(data[i].deadlineDate.getMonth()-date.getMonth() !== 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() !== 0) { %>
+                        <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
+                            <p><b>Time Left:</b> <%= data[i].deadlineDate.getFullYear()-date.getFullYear()%> Year(s) left, <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
+                        <% } %>
+                    <% } %>
+
+                        <div class="showLinksForFeatures">
+                        <a href="/edit/<%= data[i]._id %>" class="deleteNow"><i class="far fa-edit edit fa-2x"></i></a>
+                        <a href="/delete/<%= data[i]._id %>"><i class="fas fa-trash-alt trashIcon fa-2x"></i></a>
+
+                        <!--If it's the same date, delete the task-->
+                        <% if((data[i].deadlineDate.getDate()-date.getDate()) == 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() == 0) { %>
+                            <a href="/delete/<%= data[i]._id %>" id="timesOut"><i class="fas fa-trash-alt trashIcon fa-2x"></i></a>
+                        <% } %> 
+                    </div>
+                </div>                                   
+            </div>
+            <hr>
+        <% } %>
+
+        <% if(data.length >= 1) { %>
+            <div class="pagination">
+                <% if(currentPage !== 1 && previousPage !== 1) { %>
+                    <a href="/?page=<%=page=1 %>&&sortedDate=<%=sortedDate%>">1</a>
+                <% } %>
+                <% if(hasPreviousPage) {  %>
+                    <a href="/?page=<%=previousPage %>&&sortedDate=<%=sortedDate%>"><%=previousPage %></a>
+                <% } %>
+                <a href="/?page=<%=currentPage %>&&sortedDate=<%=sortedDate%>" class="currentPage"> <%= currentPage %> </a>
+                <% if(hasNextPage) {  %>
+                    <a href="/?page=<%=nextPage %>&&sortedDate=<%=sortedDate%>" > <%= nextPage %>  </a>
+                <% } %>
+                <% if(lastPage !== currentPage && nextPage !== lastPage) {  %>
+                    <a href="/?page=<%=lastPage%>&&sortedDate=<%=sortedDate%>" > <%= lastPage %>  </a>
+                <% } %>
+            </div>
+        <% } else {%>
+            <% if(previousPage == 0) { %>
+                <hr>
+                <h2>Empty list! Please add a task!</h2>
+            <% } %> 
+            <% if(previousPage < currentPage && previousPage !== 0) { %>
+                <hr>
+                <h2>Empty here! <a href="/?page=<%=previousPage %>&&sortedDate=<%=sortedDate%>">Go back to previous page!</a></h2>
+            <% } %> 
+        <% } %> 
+
+    </div>
+
+
+</body>
+</html>
+
+
+                
+                    
+            
+                
+            
+                       
+      

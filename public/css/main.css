@@ -1,0 +1,90 @@
+body {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center; }
+  body h1 {
+    color: #fc4445;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body .container {
+    background-color: rgba(240, 240, 240, 0.6);
+    box-shadow: 10px 5px 5px rgba(240, 240, 240, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%; }
+    body .container .addItemWrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: left; }
+      body .container .addItemWrapper .inputSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 1%; }
+    body .container .buttonDiv {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 1%; }
+      body .container .buttonDiv a {
+        color: white;
+        text-decoration: none; }
+    body .container .showTasks {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly; }
+      body .container .showTasks .showPrioAndDesc {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        text-align: left; }
+        body .container .showTasks .showPrioAndDesc .taskHeader {
+          text-decoration: underline; }
+        body .container .showTasks .showPrioAndDesc .showPrio {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly; }
+          body .container .showTasks .showPrioAndDesc .showPrio .highPriority {
+            color: #fc4445; }
+          body .container .showTasks .showPrioAndDesc .showPrio .lowPriority {
+            color: blue; }
+      body .container .showTasks .showDeadlineAndFeatures {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly; }
+          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures input[type=checkbox] {
+            height: 25px;
+            width: 25px; }
+          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .trashIcon {
+            color: #fc4445;
+            transition: 0.3s; }
+          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .trashIcon:hover {
+            color: darkred;
+            transition: color 0.3s ease-in-out; }
+          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .edit {
+            transition: 0.3s ease-in-out; }
+          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .edit:hover {
+            color: darkblue;
+            transition: color 0.3s ease-in-out; }
+    body .container .pagination {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+      body .container .pagination a {
+        margin-left: 5%;
+        font-size: 150%;
+        text-decoration: none;
+        transition: 0.3s ease-in-out; }
+      body .container .pagination .currentPage {
+        text-decoration: underline; }
+    body .container .emptyTodoOnPage {
+      margin-top: 2%;
+      font-size: 150%;
+      text-decoration: none;
+      transition: 0.3s ease-in-out; }
