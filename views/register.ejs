@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+    <form action="/register" method="post">
+
+        <div>
+
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Name is required!')) {  %>
+                <p> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+
+            <input type="text" name="name" id="" placeholder="Username">
+        </div>
+        <div>
+
+            <% for(let i=0; i<errors.length; i++) { %> 
+                <% if(errors[i].includes(' Email is required!')) {  %>
+                <p> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>  
+            
+            <input type="email" name="email" id="" placeholder="Email">
+        </div>
+        <div>
+            
+            <% for(let i=0; i<errors.length; i++) { %> 
+                <% if(errors[i].includes(' Password is required!')) {  %>
+                    <p> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+
+            <input type="password" name="password" id="" placeholder="Password">
+        </div>
+
+        <button type="submit">Register</button>
+
+    
+    </form>
+</body>

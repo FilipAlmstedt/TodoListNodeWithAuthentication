@@ -3,7 +3,8 @@ const express = require("express");
 
 const bodyParser = require("body-parser"); 
 const mongoose = require("mongoose");
-const todoFeatureRoute = require("./routes/todoFeaturesRoute")
+const todoFeatureRoute = require("./routes/todoFeaturesRoute");
+const userRoute = require("./routes/userRoute");
 const nodeSass = require("node-sass-middleware");
 
 // Initiate express use
@@ -31,6 +32,7 @@ app.set("view engine", "ejs")
 
 //router middlewares 
 app.use("/", todoFeatureRoute)
+app.use(userRoute)
 
 //Connect to DB
 mongoose.connect(process.env.DATABASE_URL, 
