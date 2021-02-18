@@ -2,10 +2,13 @@
 const express = require("express");
 
 const bodyParser = require("body-parser"); 
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+
 const todoFeatureRoute = require("./routes/todoFeaturesRoute");
 const userRoute = require("./routes/userRoute");
 const nodeSass = require("node-sass-middleware");
+
 
 // Initiate express use
 const app = express();
@@ -20,6 +23,8 @@ require("dotenv").config();
 app.use(express.static(__dirname + "/public"))
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(cookieParser());
 
 //Use SASS in this project
 app.use(nodeSass({
