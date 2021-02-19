@@ -1,7 +1,21 @@
 <form action="/login" method="post">
 
+    <% if(messages.error){ %>
+        <h3><%= messages.error %></h3>
+    <% } %>
+
+    <% for(let i=0; i<errors.length; i++) { %>
+        <% if(errors[i].includes(' Please type in an email address!')) {  %>
+        <p> <%= errors[i] %> </p>
+        <% } %>
+    <% } %>   
     <input type="text" name="email" id="" placeholder="Email">
 
+    <% for(let i=0; i<errors.length; i++) { %>
+        <% if(errors[i].includes(' Please type in a password!')) {  %>
+        <p> <%= errors[i] %> </p>
+        <% } %>
+    <% } %>   
     <input type="password" name="password" id="" placeholder="password">
 
     <button type="submit">Login</button>

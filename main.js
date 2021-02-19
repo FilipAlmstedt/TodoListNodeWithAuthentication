@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser"); 
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+const flash = require("express-flash");
+const session = require("express-session");
 
 const todoFeatureRoute = require("./routes/todoFeaturesRoute");
 const userRoute = require("./routes/userRoute");
@@ -23,7 +25,13 @@ require("dotenv").config();
 app.use(express.static(__dirname + "/public"))
 
 app.use(bodyParser.urlencoded({ extended: false }))
-
+//Use for express-flash/express-session
+app.use(session({
+    secret: 'secret123',
+    saveUninitialized: true,
+    resave: false
+}));
+app.use(flash());
 app.use(cookieParser());
 
 //Use SASS in this project

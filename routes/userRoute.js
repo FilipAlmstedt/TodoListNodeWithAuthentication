@@ -3,6 +3,7 @@ const express = require("express");
 //add controllers
 const {registerSubmitNewAccount,renderRegisterPage} = require("../controller/registerAccountController");
 const {renderLoginPage,submitLogin} = require("../controller/loginController");
+
 const router = express.Router();
 
 router.get("/register", renderRegisterPage);
