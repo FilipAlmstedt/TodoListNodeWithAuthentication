@@ -10,11 +10,12 @@ const showTodoList = async (req,res) => {
     try {
 
         //Pagination with page links 
-        const todoCount = await Todo.find().countDocuments();
+        const todoCount = await Todo.find({user: req.user.user._id}).countDocuments();
         const showDataPerClick = 3;
         totalTodos = todoCount;
 
-        const data = await Todo.find().skip((page-1)*showDataPerClick).limit(showDataPerClick).sort({deadlineDate: sortedDate});
+        const data = await Todo.find({user: req.user.user._id}).skip((page-1)*showDataPerClick).limit(showDataPerClick).sort({deadlineDate: sortedDate}); 
+        
 
         res.render("index.ejs", {
             data: data, 

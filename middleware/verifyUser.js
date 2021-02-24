@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-let errors = []
+let errors = [];
 
 const verifyToken = (req,res,next) => {
 

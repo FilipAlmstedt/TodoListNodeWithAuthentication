@@ -58,12 +58,20 @@
                         <% } %>
                     <% } %>
 
-                        <div class="showLinksForFeatures">
-                        <a href="/edit/<%= data[i]._id %>" class="deleteNow"><i class="far fa-edit edit fa-2x"></i></a>
-                        <a href="/delete/<%= data[i]._id %>"><i class="fas fa-trash-alt trashIcon fa-2x"></i></a>
+                    <div class="showLinksForFeatures">
+                        <form action="/edit/<%= data[i]._id %>" method="GET">
+                            <input type="text" name="sortedDate" value="<%=sortedDate%>" hidden />
+                            <input type="text" name="page" value="<%=currentPage%>" hidden />
+                            <button type="submit" class="edit"><i class="far fa-edit fa-2x"></i></button>
+                        </form>
+                        <form action="/delete/<%= data[i]._id %>" method="GET">
+                            <input type="text" name="sortedDate" value="<%=sortedDate%>" hidden />
+                            <input type="text" name="page" value="<%=currentPage%>" hidden />
+                            <button type="submit" class="trashIcon"><i class="fas fa-trash-alt fa-2x"></i></button>
+                        </form>
 
                         <!--If it's the same date, delete the task-->
-                        <% if((data[i].deadlineDate.getDate()-date.getDate()) == 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() == 0) { %>
+                        <% if((data[i].deadlineDate.getDate()-date.getDate()) <= 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() <= 0 && data[i].deadlineDate.getMonth()-date.getMonth() <= 0) { %>
                             <a href="/delete/<%= data[i]._id %>" id="timesOut"><i class="fas fa-trash-alt trashIcon fa-2x"></i></a>
                         <% } %> 
                     </div>

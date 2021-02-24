@@ -14,6 +14,7 @@ const registerSubmitNewAccount = async (req,res) =>  {
 
     const {name,email,password} = req.body;
 
+    //handling error in case the input is empty
     if(!req.body.name){
         errors.push(" Name is required!");
     }
@@ -34,7 +35,8 @@ const registerSubmitNewAccount = async (req,res) =>  {
             password: hashedPassword
         }).save();
 
-        return res.send("It worked!")
+        req.flash('notify', 'Account was sucessfully created!');
+        return res.redirect("/login");
 
     } catch (err) {
         
