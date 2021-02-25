@@ -146,10 +146,5 @@ background-repeat: no-repeat;*/
     background-repeat: no-repeat;
     margin: 0;
     border: 10px solid black; }
-    .editTaskContainer .addItemWrapper .inputSection {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      margin: 1%; }
-      .editTaskContainer .addItemWrapper .inputSection .errorMessages {
-        color: #ff6c5c; }
+    .editTaskContainer .addItemWrapper .errorMessages {
+      color: #ff6c5c; }

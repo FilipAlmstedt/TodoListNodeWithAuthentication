@@ -206,16 +206,10 @@ background-repeat: no-repeat;*/
         border: 10px solid black;
 
 
-        .inputSection {
-            display: flex;
-            
-            flex-direction: column;
-            justify-content: flex-end;
-            margin: 1%;
-
-            .errorMessages {
-                color: #ff6c5c;
-            }
+        
+        .errorMessages {
+            color: #ff6c5c;
         }
+        
     }
 }

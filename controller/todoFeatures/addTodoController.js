@@ -29,6 +29,7 @@ const addTodoItem = async (req,res) => {
     if(!deadlineDate){
         errors.push(" Date is required!");
     }  
+    
 
     try {
         const newTask = await new Todo({
@@ -39,7 +40,7 @@ const addTodoItem = async (req,res) => {
     
         newTask.addUser(req.user.user._id); 
 
-        res.redirect("/?page="+page+"&&sortedDate="+sortedDate);
+        return res.redirect("/?page="+page+"&&sortedDate="+sortedDate);
 
     }
     catch (err) {
