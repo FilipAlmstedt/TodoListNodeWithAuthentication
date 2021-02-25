@@ -1,12 +1,11 @@
 const Todo = require("../../model/todo");
 
-
 const renderEditTodoItem = async (req,res) => {
 
     const {sortedDate, page} = req.query;
     const data = await Todo.find();
     const chosenItem = await Todo.findOne({_id:req.params.id}); 
-    res.render("editItem.ejs", {chosenItem: chosenItem, data: data, error: "emptyString",sortedDate, page})
+    res.render("editItem.ejs", {chosenItem: chosenItem, data: data,sortedDate, page})
     
 }
 

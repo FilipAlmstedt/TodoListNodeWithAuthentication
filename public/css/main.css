@@ -125,3 +125,31 @@ background-repeat: no-repeat;*/
         transition: 0.3s ease-in-out; }
       .wrapper .divWrapperForNewTaskAndShowList .todoListDiv h2 {
         text-align: center; }
+
+.editTaskContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f3f3f3;
+  height: 100vh;
+  align-items: center; }
+  .editTaskContainer .addItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 100vh;
+    padding: 5%;
+    color: white;
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    border: 10px solid black; }
+    .editTaskContainer .addItemWrapper .inputSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 1%; }
+      .editTaskContainer .addItemWrapper .inputSection .errorMessages {
+        color: #ff6c5c; }
