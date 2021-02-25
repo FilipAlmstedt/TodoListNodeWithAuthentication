@@ -30,10 +30,9 @@ const editTodoItem = async (req,res) => {
         errors.push(" Date is required!");
     }  
 
-    console.log(errors)
-
-    if(errors) {
-        return res.render("editItem.ejs", {chosenItem: chosenItem, data: data,sortedDate, page, errors})
+    if(!description || !deadlineDate || !priority) {
+        //return res.render("editItem.ejs", {chosenItem: chosenItem, data: data,sortedDate, page, errors})
+        return res.redirect("edit/"+id+"?page="+page+"&sortedDate="+sortedDate);
     }
     
     await Todo.updateOne(
