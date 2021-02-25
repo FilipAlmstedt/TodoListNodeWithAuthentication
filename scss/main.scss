@@ -1,85 +1,137 @@
-body {
-    background-image: url("/images/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
+
+/*background-image: url("/images/background.jpg");
+background-size: cover;
+background-repeat: no-repeat;*/
+
+.wrapper {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f3f3f3;
+    height: 100vh;
+    
     h1 {
-        color: #fc4445;
+        color: #3c403d;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
     }
-    .container {
-        background-color: rgba(240,240,240,0.6);
-        box-shadow: 10px 5px 5px rgba(240,240,240,0.5) ;
+
+    .logout {
+        text-align: center;
+        text-decoration: none;
+        margin-top: 2%;
+        font-size: 30px;
+        transition: 0.3s ease-in-out;
+    }
+    .logout:hover {
+        color: green;
+        transition: color 0.3s ease-in-out; 
+    }
+
+    .divWrapperForNewTaskAndShowList {
+        
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 5%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
 
         .addItemWrapper {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             text-align: left;
+            width: 100vh;
+            padding: 5%;
+            color: white;
+            background-image: url("/images/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            border: 10px solid black;
+
 
             .inputSection {
                 display: flex;
+                
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-end;
                 margin: 1%;
-                
-            }
-        }
-        .buttonDiv {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            margin: 1%;
-            a {
-                color: white;
-                text-decoration: none;
             }
         }
 
-        .showTasks {
+        .todoListDiv{
+
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-evenly;
-            
-            .showPrioAndDesc {
+            width: 100vh;
+            margin:0;
+            padding: 2%;
+            background-color: #daded4;
+            border: 10px solid black;
+        
+            .buttonDiv {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                margin: 1%;
+                a {
+                    color: black;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
+                a:hover {
+                    color: white;
+                    transition: color 0.3s;
+                }
+            }
+
+            .showTodoList {
                 display: flex;
                 flex-direction: column;
-                justify-content: start;
-                text-align: left;
-
-                .taskHeader {
-                    text-decoration: underline;
-                }
                 
-                .showPrio {
+                .showPrioAndDesc {
                     display: flex;
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    .highPriority {
-                        color: #fc4445;
+                    flex-direction: column;
+                    
+                    .taskHeader {
+                        text-decoration: underline;
                     }
-                    .lowPriority {
-                        color: blue;
+                    
+                    .showPrioAndDeadline {
+                        display: flex;
+                        flex-direction: column;
+                        
+                        
+                        .priority {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            font-size: 30px;
+                            
+                            .highPriority {
+                                color: #fc4445;
+                                margin-left: 10px;
+                            }
+                            .lowPriority {
+                                color: blue;
+                                margin-left: 10px;
+                            }
+                        }
+                        .deadline {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;   
+                        }
                     }
                 }
-            }
-            .showDeadlineAndFeatures{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+               
                 .showLinksForFeatures{
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-evenly;
-
-                    input[type=checkbox] {
-                        height: 25px;
-                        width: 25px;  
-                    }
+                    justify-content: flex-end;
+                    
                     .trashIcon {
                         color: #fc4445; 
                         transition: 0.3s;
@@ -89,37 +141,39 @@ body {
                         transition: color 0.3s ease-in-out;
                     }
                     .edit {
-                        transition: 0.3s ease-in-out;
+                        transition: 0.3s;
                     }
                     .edit:hover {
-                        color: darkblue;
+                        color: lightblue;
                         transition: color 0.3s ease-in-out;
                     }   
                 }
+                
             }
-        }
 
-        .pagination {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            a {
-                margin-left: 5%;
+            .pagination {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                a {
+                    margin-left: 5%;
+                    font-size: 150%;
+                    text-decoration: none;
+                    transition: 0.3s ease-in-out;
+                }
+                .currentPage {
+                    text-decoration: underline;
+                }
+            }
+            .emptyTodoOnPage {
+                margin-top: 2%;
                 font-size: 150%;
                 text-decoration: none;
                 transition: 0.3s ease-in-out;
             }
-            .currentPage {
-                text-decoration: underline;
+            h2 {
+                text-align: center;
             }
-        }
-        .emptyTodoOnPage {
-            margin-top: 2%;
-            font-size: 150%;
-            text-decoration: none;
-            transition: 0.3s ease-in-out;
-        }
-      
-
+        }   
     }
 }

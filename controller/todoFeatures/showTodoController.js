@@ -15,7 +15,6 @@ const showTodoList = async (req,res) => {
         totalTodos = todoCount;
 
         const data = await Todo.find({user: req.user.user._id}).skip((page-1)*showDataPerClick).limit(showDataPerClick).sort({deadlineDate: sortedDate}); 
-        
 
         res.render("index.ejs", {
             data: data, 
@@ -28,7 +27,9 @@ const showTodoList = async (req,res) => {
             currentPage: page,
             lastPage: Math.ceil(totalTodos/showDataPerClick),
             date,
-            sortedDate
+            sortedDate,
+            user: req.user.user.name,
+            length: data.length
             })
     } catch(err){
         res.render("error.ejs", {error: err})

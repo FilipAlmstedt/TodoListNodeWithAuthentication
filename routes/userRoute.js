@@ -7,6 +7,7 @@ const {renderResetPasswordGetEmailPage,submitResetPasswordGetEmailPage,submitRes
 
 const router = express.Router();
 
+//Authentication routes
 router.get("/register", renderRegisterPage);
 router.post("/register", registerSubmitNewAccount);
 router.get("/login", renderLoginPage);
