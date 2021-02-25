@@ -30,3 +30,5 @@ Note that in order to use it you need a mongoose account to link your database w
 all set!
 
 Have fun!
+
+OBS! App is not responsive! Made for laptop screens and bigger!

@@ -1,4 +1,5 @@
 const Todo = require("../../model/todo");
+let errors = [];
 
 const showTodoList = async (req,res) => {
     const page = +req.query.page || 1;
@@ -6,6 +7,7 @@ const showTodoList = async (req,res) => {
     
     let date = new Date();
     let totalTodos;
+    
 
     try {
 
@@ -18,7 +20,6 @@ const showTodoList = async (req,res) => {
 
         res.render("index.ejs", {
             data: data, 
-            error: "emptyString",
             totalTodos,
             hasNextPage: totalTodos > showDataPerClick*page,
             hasPreviousPage: page>1,
@@ -29,10 +30,13 @@ const showTodoList = async (req,res) => {
             date,
             sortedDate,
             user: req.user.user.name,
-            length: data.length
+            length: data.length,
+            errors
             })
     } catch(err){
-        res.render("error.ejs", {error: err})
+        res.render("index.ejs", {
+            errors,
+        })
     }
 
 }

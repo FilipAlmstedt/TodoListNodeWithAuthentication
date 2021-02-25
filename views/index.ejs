@@ -2,13 +2,14 @@
 <body>
     <div class="wrapper">
 
-        <h1>Todo-list, in Node.js</h1>
+        <h1>Todo-list, created by Filip Almstedt</h1>
 
 
         <div class="divWrapperForNewTaskAndShowList">
 
             <div class="addItemWrapper">
-                <h2>Welcome to my Todo-list: <%=user%></h2>
+                <h2>Welcome to my Todo-list!</h2>
+                <h6> Current user: <%=user%></h6>
                 <%- include("addItem.ejs")%>
             </div>        
 
@@ -17,14 +18,10 @@
             <div class="todoListDiv">
                
                 <div class="buttonDiv">
-                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=1"> Sort Date <i class="fas fa-sort-numeric-down"></i> </a></button>
-                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=-1"> Sort Date <i class="fas fa-sort-numeric-up-alt"></i> </a></button>
+                    <h3>Sort my list by date:</h3>
+                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=1"> Sort Date (Close to today)</a></button>
+                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=-1"> Sort Date (Dates further away)</a></button>
                 </div>
-            
-
-                <%  if(typeof error !== undefined && error !=="emptyString") { %>
-                    <%- include("error.ejs") %>
-                <% } %>
 
                 <% for(let i=0; i<data.length; i++) { %>
                     <hr>
@@ -119,7 +116,7 @@
                         <% if(currentPage !== 1 && previousPage !== 1) { %>
                             <a href="/?page=<%=page=1 %>&&sortedDate=<%=sortedDate%>">1</a>
                         <% } %>
-                        <% if(hasPreviousPage) {  %>
+                        <% if(hasPreviousPage) { %>
                             <a href="/?page=<%=previousPage %>&&sortedDate=<%=sortedDate%>"><%=previousPage %></a>
                         <% } %>
                         <a href="/?page=<%=currentPage %>&&sortedDate=<%=sortedDate%>" class="currentPage"> <%= currentPage %> </a>

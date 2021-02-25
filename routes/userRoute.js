@@ -3,7 +3,7 @@ const express = require("express");
 //add controllers
 const {registerSubmitNewAccount,renderRegisterPage} = require("../controller/registerAccountController");
 const {renderLoginPage,submitLogin} = require("../controller/loginController");
-const {renderResetPasswordGetEmailPage,submitResetPasswordGetEmailPage,submitResetPasswordFormPage,resetPasswordParams} = require("../controller/resetPassword");
+const {renderResetPasswordGetEmailPage,submitResetPasswordGetEmailPage,submitResetPasswordFormPage,resetPasswordParams} = require("../controller/resetPasswordController");
 
 const router = express.Router();
 

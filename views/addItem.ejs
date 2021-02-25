@@ -2,11 +2,23 @@
     <div class="inputSection">
         <label for="description">Add task:</label>
         <input class="form-control" id="description" type="textarea" name="description"/>
+
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Task description is required!')) {  %>
+            <p class="errorMessages"> <%= errors[i] %> </p>
+            <% } %>
+        <% } %>    
     </div>
 
     <div class="inputSection">
         <label for="priority">Priority (HIGH or LOW): </label>
         <input type="text" id="priority" class="form-control" name="priority" style="text-transform: uppercase;"/>
+
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Priority is required! Please type in high or low as a task')) {  %>
+            <p class="errorMessages"> <%= errors[i] %> </p>
+            <% } %>
+        <% } %>    
     </div>
 
     <input type="text" name="sortedDate" value="<%=sortedDate%>" hidden />
@@ -20,5 +32,11 @@
                 <button type="submit" id="submitToAdd" class="btn btn-primary">+</button>
             </div>
         </div>
+
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Date is required!')) {  %>
+            <p class="errorMessages"> <%= errors[i] %> </p>
+            <% } %>
+        <% } %>    
     </div>
 </form>

@@ -18,7 +18,7 @@ background-repeat: no-repeat;*/
     font-size: 30px;
     transition: 0.3s ease-in-out; }
   .wrapper .logout:hover {
-    color: green;
+    color: lightgreen;
     transition: color 0.3s ease-in-out; }
   .wrapper .divWrapperForNewTaskAndShowList {
     display: flex;
@@ -43,6 +43,8 @@ background-repeat: no-repeat;*/
         flex-direction: column;
         justify-content: flex-end;
         margin: 1%; }
+        .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper .inputSection .errorMessages {
+          color: #ff6c5c; }
     .wrapper .divWrapperForNewTaskAndShowList .todoListDiv {
       display: flex;
       flex-direction: column;
@@ -79,7 +81,7 @@ background-repeat: no-repeat;*/
               display: flex;
               flex-direction: row;
               justify-content: flex-end;
-              font-size: 30px; }
+              font-size: 25px; }
               .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline .priority .highPriority {
                 color: #fc4445;
                 margin-left: 10px; }
