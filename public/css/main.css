@@ -148,3 +148,26 @@ background-repeat: no-repeat;*/
     border: 10px solid black; }
     .editTaskContainer .addItemWrapper .errorMessages {
       color: #ff6c5c; }
+
+.loginPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; }
+  .loginPageContainer .loginForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .loginPageContainer .loginForm form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 10px solid black;
+      padding: 5%;
+      width: 50vh; }
+      .loginPageContainer .loginForm form .errorMessages {
+        color: #ff6c5c; }
+    .loginPageContainer .loginForm .welcomeSection {
+      border: 10px solid black;
+      width: 50vh;
+      padding: 5%; }

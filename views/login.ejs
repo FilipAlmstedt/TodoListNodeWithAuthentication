@@ -1,29 +1,41 @@
-<form action="/login" method="post">
+<%- include("partials/_header.ejs") %>
+<div class="loginPageContainer">
+    <div class="loginForm">
+        <div class="welcomeSection">
+            <h1>Welcome!</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus, augue sed commodo ultrices, leo est feugiat urna, quis imperdiet mi sem at nisi. 
+                Aliquam sollicitudin quam libero, vitae tempus augue bibendum iaculis. 
+            </p>
+        </div>
+        <form action="/login" method="post">
 
-    <% if(messages.error || messages.notify){ %>
-        <h3><%= messages.error %></h3>
-        <h3><%= messages.notify %></h3>
-    <% } %>
+            <% if(messages.error || messages.notify){ %>
+                <h3 class="errorMessages"><%= messages.error %></h3>
+                <h3 class="errorMessages"><%= messages.notify %></h3>
+            <% } %>
+            <input class="form-control" type="text" name="email" id="" placeholder="Email">
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Please type in an email address!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>   
 
-    <% for(let i=0; i<errors.length; i++) { %>
-        <% if(errors[i].includes(' Please type in an email address!')) {  %>
-        <p> <%= errors[i] %> </p>
-        <% } %>
-    <% } %>   
-    <input type="text" name="email" id="" placeholder="Email">
+            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Please type in a password!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>   
 
-    <% for(let i=0; i<errors.length; i++) { %>
-        <% if(errors[i].includes(' Please type in a password!')) {  %>
-        <p> <%= errors[i] %> </p>
-        <% } %>
-    <% } %>   
-    <input type="password" name="password" id="" placeholder="password">
+            <button type="submit" class="btn btn-outline-dark">Login</button>
 
-    <button type="submit">Login</button>
+            <span>Don't have account? </span>
+            <a href="/register"> Register</a>
+            <span>Forgot your password? Reset here:</span>
+            <a href="/resetPassword">Forgot password?</a>
 
-
-    <span>Don't have account? </span>
-    <a href="/register"> Register</a>
-    <span>Forgot your password? Reset here:</span>
-    <a href="/resetPassword">Forgot password?</a>
-</form>
+        </form>
+    </div>
+</div>
+    

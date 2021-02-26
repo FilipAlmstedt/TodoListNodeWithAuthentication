@@ -52,7 +52,7 @@ const addTodoItem = async (req,res) => {
             totalTodos,
             hasNextPage: totalTodos > showDataPerClick*page,
             hasPreviousPage: page>1,
-            nextPage: page+1,
+            nextPage:  parseInt(page,10)+1,
             previousPage: page-1,
             lastPage: Math.ceil(totalTodos/showDataPerClick),
             date,

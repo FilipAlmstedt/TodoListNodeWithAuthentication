@@ -1,5 +1,6 @@
 # Todo-list with required authentication 
 Using Express, MongoDB as the database through Mongoose with the addition that the user now needs an account to be able to use the app.
+I also redesigned the app so it's looks and works a bit better than last time in my opinion
 
 Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
 
@@ -19,7 +20,7 @@ Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
 ###### New features for the second assignment:
 
 - User needs to create an account to use the Todo-list 
-- User can now reset the password for his/her account via mail
+- User can now reset the password for his/her account via gmail
 
 -----------------
 

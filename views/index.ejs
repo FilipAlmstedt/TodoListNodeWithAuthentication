@@ -1,4 +1,4 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/_header.ejs") %>
 <body>
     <div class="wrapper">
 
@@ -19,8 +19,8 @@
                
                 <div class="buttonDiv">
                     <h3>Sort my list by date:</h3>
-                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=1"> Sort Date (Close to today)</a></button>
-                    <button class="btn btn-outline-dark"><a href="/?page=<%=currentPage%>&&sortedDate=-1"> Sort Date (Dates further away)</a></button>
+                    <a href="/?page=<%=currentPage%>&&sortedDate=1"><button class="btn btn-outline-dark">Sort Date (Close to today)</button></a>
+                    <a href="/?page=<%=currentPage%>&&sortedDate=-1"><button class="btn btn-outline-dark">Sort Date (Dates further away)</button></a>
                 </div>
 
                 <% for(let i=0; i<data.length; i++) { %>

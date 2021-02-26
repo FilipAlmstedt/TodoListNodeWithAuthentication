@@ -16,9 +16,7 @@ const editTodoItem = async (req,res) => {
     errors = [];
 
     const {sortedDate, page, id, description, priority, deadlineDate} = req.body;
-    const data = await Todo.find();
-    const chosenItem = await Todo.findOne({_id:id}); 
-    
+   
     //error control
     if(!description) {
         errors.push(" Task description is required!");
@@ -30,8 +28,7 @@ const editTodoItem = async (req,res) => {
         errors.push(" Date is required!");
     }  
 
-    if(!description || !deadlineDate || !priority) {
-        //return res.render("editItem.ejs", {chosenItem: chosenItem, data: data,sortedDate, page, errors})
+    if(!description || !deadlineDate || !priority) { 
         return res.redirect("edit/"+id+"?page="+page+"&sortedDate="+sortedDate);
     }
     

@@ -5,7 +5,7 @@ let errors = [];
 
 const renderRegisterPage = async (req,res) => {
 
-    res.render("register.ejs", {errors:""});
+    res.render("registerAccount.ejs", {errors:""});
 
 }
 
@@ -40,7 +40,7 @@ const registerSubmitNewAccount = async (req,res) =>  {
 
     } catch (err) {
         
-        if(errors) return res.render("register.ejs", {errors: errors})
+        if(errors) return res.render("registerAccount.ejs", {errors: errors})
         
     } 
 
