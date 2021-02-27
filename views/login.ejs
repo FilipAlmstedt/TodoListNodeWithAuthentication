@@ -2,26 +2,41 @@
 <div class="loginPageContainer">
     <div class="loginForm">
         <div class="welcomeSection">
-            <h1>Welcome!</h1>
+            <h1>Todo-List!</h1>
+            <img src="/images/icon.png" width="80px" height="80px" alt="icon for site" /> 
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus, augue sed commodo ultrices, leo est feugiat urna, quis imperdiet mi sem at nisi. 
-                Aliquam sollicitudin quam libero, vitae tempus augue bibendum iaculis. 
+                Welcome to my todo-list, with authentication, created in Node. 
+                Please login to use!
+            </p>
+            <p>
+                App creator:  Filip Almstedt 
             </p>
         </div>
         <form action="/login" method="post">
 
+            <h3>Login!</h3>
+
             <% if(messages.error || messages.notify){ %>
-                <h3 class="errorMessages"><%= messages.error %></h3>
-                <h3 class="errorMessages"><%= messages.notify %></h3>
+                <p class="errorMessages"><%= messages.error %></p>
+                <p class="errorMessages"><%= messages.notify %></p>
             <% } %>
-            <input class="form-control" type="text" name="email" id="" placeholder="Email">
+
+            <label for="email">Email:</label>
+            <div class="input-group">
+                <input class="form-control" type="text" name="email" id="" placeholder="Email">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
             <% for(let i=0; i<errors.length; i++) { %>
                 <% if(errors[i].includes(' Please type in an email address!')) {  %>
                 <p class="errorMessages"> <%= errors[i] %> </p>
                 <% } %>
             <% } %>   
 
-            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+            <label for="password">Password:</label>
+            <div class="input-group">
+                <input class="form-control" type="password" name="password" id="" placeholder="Password">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            </div>
             <% for(let i=0; i<errors.length; i++) { %>
                 <% if(errors[i].includes(' Please type in a password!')) {  %>
                 <p class="errorMessages"> <%= errors[i] %> </p>
@@ -29,10 +44,8 @@
             <% } %>   
 
             <button type="submit" class="btn btn-outline-dark">Login</button>
-
-            <span>Don't have account? </span>
-            <a href="/register"> Register</a>
-            <span>Forgot your password? Reset here:</span>
+            
+            <a href="/register"> Don't have an account? Create one!</a>
             <a href="/resetPassword">Forgot password?</a>
 
         </form>

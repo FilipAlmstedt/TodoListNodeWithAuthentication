@@ -7,10 +7,15 @@ background-repeat: no-repeat;*/
   justify-content: flex-start;
   background-color: #f3f3f3;
   height: 100vh; }
-  .wrapper h1 {
-    color: #3c403d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center; }
+  .wrapper .headerAndIcon {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+    align-items: center; }
+    .wrapper .headerAndIcon h1 {
+      color: #3c403d;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center; }
   .wrapper .logout {
     text-align: center;
     text-decoration: none;
@@ -153,7 +158,8 @@ background-repeat: no-repeat;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh; }
+  height: 100vh;
+  background-color: #f3f3f3; }
   .loginPageContainer .loginForm {
     display: flex;
     flex-direction: row;
@@ -170,4 +176,27 @@ background-repeat: no-repeat;*/
     .loginPageContainer .loginForm .welcomeSection {
       border: 10px solid black;
       width: 50vh;
+      text-align: center;
       padding: 5%; }
+
+.registerPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f3f3; }
+  .registerPageContainer .infoAndRegisterForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .registerPageContainer .infoAndRegisterForm .infoDiv {
+      border: 10px solid black;
+      padding: 2.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; }
+    .registerPageContainer .infoAndRegisterForm form {
+      border: 10px solid black;
+      padding: 5%; }
+      .registerPageContainer .infoAndRegisterForm form .errorMessages {
+        color: #ff6c5c; }
