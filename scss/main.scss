@@ -1,8 +1,3 @@
-
-/*background-image: url("/images/background.jpg");
-background-size: cover;
-background-repeat: no-repeat;*/
-
 .wrapper {
     
     display: flex;
@@ -14,8 +9,9 @@ background-repeat: no-repeat;*/
     .headerAndIcon {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1%;
+        padding-bottom: 1%;
         align-items: center;
+        border: 10px solid black;
 
         h1 {
             color: #3c403d;

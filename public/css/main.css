@@ -1,6 +1,3 @@
-/*background-image: url("/images/background.jpg");
-background-size: cover;
-background-repeat: no-repeat;*/
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -10,8 +7,9 @@ background-repeat: no-repeat;*/
   .wrapper .headerAndIcon {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1%;
-    align-items: center; }
+    padding-bottom: 1%;
+    align-items: center;
+    border: 10px solid black; }
     .wrapper .headerAndIcon h1 {
       color: #3c403d;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
