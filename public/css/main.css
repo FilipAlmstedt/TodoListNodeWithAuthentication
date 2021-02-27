@@ -164,6 +164,18 @@ background-repeat: no-repeat;*/
     display: flex;
     flex-direction: row;
     justify-content: center; }
+    .loginPageContainer .loginForm .welcomeSection {
+      border: 10px solid black;
+      width: 50vh;
+      text-align: center;
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      /*background-image: url("/images/loginbackground.jpg");
+            background-position: center;
+            background-size: cover;*/ }
     .loginPageContainer .loginForm form {
       display: flex;
       flex-direction: column;
@@ -173,11 +185,8 @@ background-repeat: no-repeat;*/
       width: 50vh; }
       .loginPageContainer .loginForm form .errorMessages {
         color: #ff6c5c; }
-    .loginPageContainer .loginForm .welcomeSection {
-      border: 10px solid black;
-      width: 50vh;
-      text-align: center;
-      padding: 5%; }
+      .loginPageContainer .loginForm form button {
+        margin-top: 10px; }
 
 .registerPageContainer {
   display: flex;
@@ -194,9 +203,38 @@ background-repeat: no-repeat;*/
       padding: 2.5%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; }
+      justify-content: flex-start;
+      background-image: url("/images/registerbackground.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #f3f3f3; }
     .registerPageContainer .infoAndRegisterForm form {
       border: 10px solid black;
       padding: 5%; }
       .registerPageContainer .infoAndRegisterForm form .errorMessages {
         color: #ff6c5c; }
+      .registerPageContainer .infoAndRegisterForm form button {
+        margin-top: 10px; }
+
+.resetPasswordContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f3f3; }
+  .resetPasswordContainer .resetPasswordWindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .resetPasswordContainer .resetPasswordWindow form {
+      text-align: center;
+      border: 10px solid black;
+      padding: 5%; }
+      .resetPasswordContainer .resetPasswordWindow form h1 {
+        margin-bottom: 20px; }
+      .resetPasswordContainer .resetPasswordWindow form button {
+        margin: 10px; }
+      .resetPasswordContainer .resetPasswordWindow form a {
+        text-decoration: none;
+        color: black; }

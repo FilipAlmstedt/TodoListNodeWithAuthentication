@@ -15,13 +15,13 @@ const registerSubmitNewAccount = async (req,res) =>  {
     const {name,email,password} = req.body;
 
     //handling error in case the input is empty
-    if(!req.body.name){
+    if(!name){
         errors.push(" Name is required!");
     }
-    if(!req.body.email){
+    if(!email){
         errors.push(" Email is required!");
     }
-    if(!req.body.password){
+    if(!password){
         errors.push(" Password is required!");
     }
     try {

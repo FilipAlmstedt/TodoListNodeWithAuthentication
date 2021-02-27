@@ -8,7 +8,7 @@ let errors = [];
 
 const renderLoginPage = async (req,res) => {
 
-    res.render("login.ejs", {errors: errors});
+    res.render("login.ejs", {errors});
 
 }
 
@@ -28,7 +28,7 @@ const submitLogin = async (req,res) => {
         errors.push(" Please type in a password!");
     }
     if(!email || !password){
-        res.render("login.ejs", {errors:errors});
+        res.render("login.ejs", {errors});
     }
 
     try {
@@ -64,7 +64,7 @@ const submitLogin = async (req,res) => {
 
     } catch (err) {
         if(errors){
-            return res.render("login.ejs", {errors: errors});
+            return res.render("login.ejs", {errors});
         }
     }
 }

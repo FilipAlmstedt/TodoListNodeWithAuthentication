@@ -5,14 +5,11 @@ const nodemailer = require("nodemailer");
 
 require("dotenv").config();
 
-let errors = [];
-
-
 const transport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-        user: "fpasth@gmail.com",
-        pass: "test2020!"
+        user: process.env.NODEMAILER_USERMAIL,
+        pass: process.env.NODEMAILER_PASSWORD
     }
 });
 
@@ -39,7 +36,7 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
     await user.save();
 
     await transport.sendMail({
-        from: "fpasth@gmail.com",
+        from: process.env.NODEMAILER_USERMAIL,
         to: user.email,
         subject: "Reset your password",
         html: `<h2>Here's the link to reset your password. <a href="http://localhost:8000/resetPassword/${user.token}">Press here to reset!</a></h2>`
