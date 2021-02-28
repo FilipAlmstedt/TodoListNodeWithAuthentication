@@ -36,21 +36,21 @@
         
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        margin: 0;
+        justify-content: space-evenly;
+        
 
         .addItemWrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: left;
-            width: 100vh;
+            width: 110vh;
             padding: 5%;
             color: white;
             background-image: url("/images/background.jpg");
             background-size: cover;
             background-repeat: no-repeat;
-            margin: 0;
+            margin: 0%;
             border: 10px solid black;
 
             .inputSection {
@@ -71,8 +71,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            width: 100vh;
-            margin:0;
+            width: 110vh;
+            margin:0%;
             padding: 2%;
             background-color: #daded4;
             border: 10px solid black;
@@ -249,6 +249,9 @@
             .errorMessages {
                 color: #ff6c5c;
             }
+            .notifyMessages {
+                color: blue;
+            }
 
             button {
                 margin-top: 10px;
@@ -306,14 +309,13 @@
     height: 100vh;
     background-color: #f3f3f3;
 
-
     .resetPasswordWindow {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        form {
+        .passwordEmailForm {
             text-align: center;
             border: 10px solid black;
             padding: 5%;
@@ -327,6 +329,53 @@
             a {
                 text-decoration: none;
                 color: black;
+            }
+        }
+
+        //resetPasswordForm.ejs
+        .resetPasswordForm {
+            border: 10px solid black;
+            padding: 5%;
+            text-align: center;
+            background-image: url("/images/resetpasswordbackground.jpg");
+            background-position: center;
+            background-size: cover;
+            color: white;
+            opacity: 0.8;
+
+            .errorMessages {
+                color: #ff6c5c;
+            }
+
+            button {
+                margin-top: 10px;
+            }
+        }
+        //Use for checkMail.ejs
+        .checkMail {
+            border: 10px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5%;
+
+            h1 {
+                margin-bottom: 2%;
+            }
+            i {
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+            
+
+            a {
+                text-decoration: none;
+                color: black;
+                margin-top: 5%;
+            }
+            a:hover {
+                color: white;
             }
         }
     }

@@ -26,20 +26,19 @@
   .wrapper .divWrapperForNewTaskAndShowList {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin: 0; }
+    justify-content: space-evenly; }
     .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: left;
-      width: 100vh;
+      width: 110vh;
       padding: 5%;
       color: white;
       background-image: url("/images/background.jpg");
       background-size: cover;
       background-repeat: no-repeat;
-      margin: 0;
+      margin: 0%;
       border: 10px solid black; }
       .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper .inputSection {
         display: flex;
@@ -52,8 +51,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      width: 100vh;
-      margin: 0;
+      width: 110vh;
+      margin: 0%;
       padding: 2%;
       background-color: #daded4;
       border: 10px solid black; }
@@ -183,6 +182,8 @@
       width: 50vh; }
       .loginPageContainer .loginForm form .errorMessages {
         color: #ff6c5c; }
+      .loginPageContainer .loginForm form .notifyMessages {
+        color: blue; }
       .loginPageContainer .loginForm form button {
         margin-top: 10px; }
 
@@ -225,14 +226,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    .resetPasswordContainer .resetPasswordWindow form {
+    .resetPasswordContainer .resetPasswordWindow .passwordEmailForm {
       text-align: center;
       border: 10px solid black;
       padding: 5%; }
-      .resetPasswordContainer .resetPasswordWindow form h1 {
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm h1 {
         margin-bottom: 20px; }
-      .resetPasswordContainer .resetPasswordWindow form button {
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm button {
         margin: 10px; }
-      .resetPasswordContainer .resetPasswordWindow form a {
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm a {
         text-decoration: none;
         color: black; }
+    .resetPasswordContainer .resetPasswordWindow .resetPasswordForm {
+      border: 10px solid black;
+      padding: 5%;
+      text-align: center;
+      background-image: url("/images/resetpasswordbackground.jpg");
+      background-position: center;
+      background-size: cover;
+      color: white;
+      opacity: 0.8; }
+      .resetPasswordContainer .resetPasswordWindow .resetPasswordForm .errorMessages {
+        color: #ff6c5c; }
+      .resetPasswordContainer .resetPasswordWindow .resetPasswordForm button {
+        margin-top: 10px; }
+    .resetPasswordContainer .resetPasswordWindow .checkMail {
+      border: 10px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail h1 {
+        margin-bottom: 2%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail i {
+        margin-top: 5%;
+        margin-bottom: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail a {
+        text-decoration: none;
+        color: black;
+        margin-top: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail a:hover {
+        color: white; }

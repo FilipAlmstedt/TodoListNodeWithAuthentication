@@ -5,6 +5,8 @@ const nodemailer = require("nodemailer");
 
 require("dotenv").config();
 
+let errors = [];
+
 const transport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -39,7 +41,10 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
         from: process.env.NODEMAILER_USERMAIL,
         to: user.email,
         subject: "Reset your password",
-        html: `<h2>Here's the link to reset your password. <a href="http://localhost:8000/resetPassword/${user.token}">Press here to reset!</a></h2>`
+        html: 
+        `<h1>Hi ${user.name}!</h1>
+        <p>We're sending you this email because you requested a password reset. Click on the link below to create a new password:</p>
+        <a href="http://localhost:8000/resetPassword/${user.token}"><button>Set a new password</button></a>`
     }); 
 
     res.render("checkMail.ejs");
@@ -50,9 +55,16 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
 //Update the new password for the user
 const submitResetPasswordFormPage = async (req, res) => {
 
-    const email = req.body.email;
-    const password = req.body.password;
+    errors = [];
 
+    const {email, password} = req.body;
+
+    // error control
+    if(!password) {
+        errors.push(" Please type in a new password!")
+        res.render("resetPasswordForm.ejs", {errors, email})
+    }
+    
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -79,7 +91,7 @@ const resetPasswordParams = async (req, res) => {
             return res.redirect("/registerPassword");
         }
 
-        res.render("resetPasswordForm.ejs", {err: "", email: user.email});
+        res.render("resetPasswordForm.ejs", {errors, email: user.email});
     } catch (err) {
         res.render("resetPasswordGetEmailForm.ejs", {err: ""})
     }
