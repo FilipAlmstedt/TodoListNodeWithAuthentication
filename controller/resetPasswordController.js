@@ -49,7 +49,6 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
 
     res.render("checkMail.ejs");
 
-
 }
 
 //Update the new password for the user

@@ -6,16 +6,20 @@ let errors = [];
 const verifyToken = (req,res,next) => {
 
     const token = req.cookies.jwtToken;
-    if(!token) {
-        res.render("login.ejs", {errors})
-    }
 
-    const validUser = jwt.verify(token, process.env.SECRET_KEY);
-    if(validUser) {
-        req.user = validUser;
+    try {
+        const validUser = jwt.verify(token, process.env.SECRET_KEY);
+        if(validUser) {
+            req.user = validUser;
+        }
+        
+        next();
+        
+    } catch (err) {
+        if(!token) {
+            res.render("login.ejs", {errors})
+        }
     }
-    
-    next();
 
 }
 

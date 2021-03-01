@@ -1,7 +1,7 @@
 <form action="/" method="post">
     <div class="inputSection">
         <label for="description">Add task:</label>
-        <input class="form-control" id="description" type="textarea" name="description"/>
+        <input class="form-control" id="description" type="text" placeholder="Type in your task to do..." name="description"/>
 
         <% for(let i=0; i<errors.length; i++) { %>
             <% if(errors[i].includes(' Task description is required!')) {  %>
@@ -12,7 +12,7 @@
 
     <div class="inputSection">
         <label for="priority">Priority (HIGH or LOW): </label>
-        <input type="text" id="priority" class="form-control" name="priority" style="text-transform: uppercase;"/>
+        <input type="text" id="priority" class="form-control" name="priority" placeholder="High or Low" style="text-transform: uppercase;"/>
 
         <% for(let i=0; i<errors.length; i++) { %>
             <% if(errors[i].includes(' Priority is required! Please type in high or low as a task')) {  %>

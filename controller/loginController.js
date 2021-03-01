@@ -27,18 +27,15 @@ const submitLogin = async (req,res) => {
     if(!password){
         errors.push(" Please type in a password!");
     }
-    if(!email || !password){
-        res.render("login.ejs", {errors});
-    }
-
+    
     try {
 
         //Find if a user exists with email
         const user = await User.findOne({email:email});
 
         //If not , go to regsiter
-        if(!user) {
-            req.flash('error', 'Email does not exists here, please create an account!')
+        if(!user && email !== "") {
+            req.flash('error', 'Email does not exists here, please create an account!');
             return res.redirect("/login");
         }
 
