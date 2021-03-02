@@ -4,10 +4,9 @@ let errors = [];
 const showTodoList = async (req,res) => {
     const page = +req.query.page || 1;
     const sortedDate = +req.query.sortedDate || 1;
-    
+
     let date = new Date();
     let totalTodos;
-    
 
     try {
 
@@ -15,6 +14,11 @@ const showTodoList = async (req,res) => {
         const todoCount = await Todo.find({user: req.user.user._id}).countDocuments();
         const showDataPerClick = 3;
         totalTodos = todoCount;
+
+        //Variables needed for calculating time left to deadline
+        let oneWeek = 1000*60*60*24*7;
+        let year = 1000*60*60*24*7*52;
+        let days = 1000*60*60*24;
 
         const data = await Todo.find({user: req.user.user._id}).skip((page-1)*showDataPerClick).limit(showDataPerClick).sort({deadlineDate: sortedDate}); 
 
@@ -31,7 +35,10 @@ const showTodoList = async (req,res) => {
             sortedDate,
             user: req.user.user.name,
             length: data.length,
-            errors
+            errors,
+            oneWeek,
+            year,
+            days
             })
     } catch(err){
         res.render("index.ejs", {

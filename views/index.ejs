@@ -42,22 +42,19 @@
                                     <div class="deadline">
                                         <p><b>Deadline:</b> <%= data[i].deadlineDate.getFullYear()%>-<%= data[i].deadlineDate.getMonth()+1%>-<%= data[i].deadlineDate.getDate()%></p>
 
+                                        <!--Show only weeks-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 2 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) <= 52) { %>
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
+                                        <% } %> 
+
                                         <!--Show only days-->
-                                        <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() == 0 ) { %>
-                                            <p><b>Time Left:</b> <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 31) { %> 
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
-                                        <!--Show month and date-->
-                                        <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() !== 0) { %>
-                                            <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
-                                                <p><b>Time Left:</b> <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
-                                            <% } %>
-                                        <% } %>
-            
-                                        <!--Show year, month and days-->
-                                        <% if(data[i].deadlineDate.getMonth()-date.getMonth() !== 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() !== 0) { %>
-                                            <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
-                                                <p><b>Time Left:</b> <%= data[i].deadlineDate.getFullYear()-date.getFullYear()%> Year(s) left, <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
-                                            <% } %>
+
+                                        <!--Show years -->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) Left</p>
                                         <% } %>
                                     </div>
                                 </div>
@@ -70,23 +67,20 @@
                                     <div class="deadline">
                                         <p ><b>Deadline:</b> <%= data[i].deadlineDate.getFullYear()%>-<%= data[i].deadlineDate.getMonth()+1%>-<%= data[i].deadlineDate.getDate()%></p>
 
+                                        <!--Show only weeks-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 2 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) <= 52) { %>
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
+                                        <% }  %>
                                         <!--Show only days-->
-                                        <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() == 0 ) { %>
-                                            <p><b>Time Left:</b> <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 13) { %> 
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
-                                        <!--Show month and date-->
-                                        <% if(data[i].deadlineDate.getFullYear()-date.getFullYear() == 0 && data[i].deadlineDate.getMonth()-date.getMonth() !== 0) { %>
-                                            <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
-                                                <p><b>Time Left:</b> <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
-                                            <% } %>
+
+                                        <!--Show years and weeks-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) left</p>
                                         <% } %>
-            
-                                        <!--Show year, month and days-->
-                                        <% if(data[i].deadlineDate.getMonth()-date.getMonth() !== 0 && data[i].deadlineDate.getFullYear()-date.getFullYear() !== 0) { %>
-                                            <% if(data[i].deadlineDate.getDate()-date.getDate() !== 0) { %>
-                                                <p><b>Time Left:</b> <%= data[i].deadlineDate.getFullYear()-date.getFullYear()%> Year(s) left, <%= data[i].deadlineDate.getMonth()-date.getMonth()%> Month(s) left, <%= data[i].deadlineDate.getDate()-date.getDate()%> day(s) left</p>
-                                            <% } %>
-                                        <% } %>
+
                                     </div>
                                 </div>
                             <% } %> 

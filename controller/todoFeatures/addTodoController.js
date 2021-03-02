@@ -8,6 +8,11 @@ const addTodoItem = async (req,res) => {
     let totalTodos;
     let date = new Date();
 
+    //Variables needed for calculating time left to deadline
+    let oneWeek = 1000*60*60*24*7;
+    let year = 1000*60*60*24*7*52;
+    let days = 1000*60*60*24;
+
     const todoCount = await Todo.find({user: req.user.user._id}).countDocuments();
     const showDataPerClick = 3;
     
@@ -58,6 +63,9 @@ const addTodoItem = async (req,res) => {
             date,
             sortedDate,
             length: data.length,
+            oneWeek,
+            days,
+            year
         })
     }   
 }
