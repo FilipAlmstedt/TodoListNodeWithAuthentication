@@ -7,8 +7,6 @@
             <img src="/images/icon.png" width="150px" height="150px" alt="icon for site" /> 
             <a class="logout" href="/logout">Click here to log out!<i class="fas fa-door-open"></i></a>
         </div>
-            
-
 
         <div class="divWrapperForNewTaskAndShowList">
 
@@ -46,12 +44,10 @@
                                         <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 2 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) <= 52) { %>
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
                                         <% } %> 
-
                                         <!--Show only days-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 31) { %> 
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 14 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 2) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
-
                                         <!--Show years -->
                                         <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) Left</p>
@@ -72,15 +68,13 @@
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
                                         <% }  %>
                                         <!--Show only days-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 13) { %> 
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 14 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 2) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
-
                                         <!--Show years and weeks-->
                                         <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) left</p>
                                         <% } %>
-
                                     </div>
                                 </div>
                             <% } %> 

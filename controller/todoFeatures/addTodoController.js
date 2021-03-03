@@ -3,7 +3,7 @@ const Todo = require("../../model/todo");
 let errors = [];
 
 const addTodoItem = async (req,res) => {
-    const {description,priority,deadlineDate,sortedDate, page} = req.body;
+    const {description,priority,deadlineDate,sortedDate,page} = req.body;
 
     let totalTodos;
     let date = new Date();

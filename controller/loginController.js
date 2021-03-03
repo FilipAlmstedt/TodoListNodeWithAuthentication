@@ -2,7 +2,7 @@ const User = require("../model/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config();
+const {secretKey} = require("../config/config")
 
 let errors = [];
 
@@ -47,7 +47,7 @@ const submitLogin = async (req,res) => {
         }
 
         //Create token
-        const jwtToken = await jwt.sign({user:user}, process.env.SECRET_KEY);
+        const jwtToken = await jwt.sign({user:user}, secretKey);
         if(jwtToken) {
             //Get cookie
             const cookie = req.cookies.jwtToken;

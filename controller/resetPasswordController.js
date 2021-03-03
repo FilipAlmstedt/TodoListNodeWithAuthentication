@@ -3,15 +3,15 @@ const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-require("dotenv").config();
+const {nodeMailerUser, nodeMailerPassword} = require("../config/config")
 
 let errors = [];
 
 const transport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-        user: process.env.NODEMAILER_USERMAIL,
-        pass: process.env.NODEMAILER_PASSWORD
+        user: nodeMailerUser,
+        pass: nodeMailerPassword
     }
 });
 
@@ -38,7 +38,7 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
     await user.save();
 
     await transport.sendMail({
-        from: process.env.NODEMAILER_USERMAIL,
+        from: nodeMailerUser,
         to: user.email,
         subject: "Reset your password",
         html: 

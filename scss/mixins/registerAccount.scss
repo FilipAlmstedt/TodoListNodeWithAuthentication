@@ -1,0 +1,41 @@
+//registerAccount.ejs
+@mixin registerAccount {
+    .registerPageContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f3f3f3;
+    
+        .infoAndRegisterForm {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+    
+            .infoDiv {
+                border: 10px solid black;
+                padding: 2.5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                background-image: url("/images/registerbackground.jpg");
+                background-size: cover;
+                background-position: center;
+                color: #f3f3f3;
+            }
+    
+            form {
+                border: 10px solid black;
+                padding: 5%;
+    
+                .errorMessages {
+                    color: #ff6c5c;
+                }
+    
+                button {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+//editItem.ejs
+@mixin editItem {
+    .editTaskContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #f3f3f3;
+        height: 100vh;
+        align-items: center;
+        .addItemWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            width: 100vh;
+            padding: 5%;
+            color: white;
+            background-image: url("/images/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            border: 10px solid black;
+            
+            .errorMessages {
+                color: #ff6c5c;
+            }
+        }
+    }
+}
