@@ -28,8 +28,15 @@
                     <hr>
                     <div class="showTodoList">
                         <div class="showPrioAndDesc">
+
+                            <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 3) { %>
+                                <h6 class="errorMessages">Warning!!</h6> 
+                                <h6 class="errorMessages">This tasks deadline is near! This task will delete itself when the deadline comes. Make sure you get it done!!!</h6>
+                            <% } %>
+
                             <h6 class="taskHeader">Task to do:</h6>
                             <h5><%= data[i].description%></h5>
+
                             <% if(data[i].priority == "HIGH") { %>
                                 <div class="showPrioAndDeadline">
                                     <div class="priority">
@@ -40,21 +47,21 @@
                                     <div class="deadline">
                                         <p><b>Deadline:</b> <%= data[i].deadlineDate.getFullYear()%>-<%= data[i].deadlineDate.getMonth()+1%>-<%= data[i].deadlineDate.getDate()%></p>
 
-                                        <!--Show only weeks-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 2 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) <= 52) { %>
-                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
-                                        <% } %> 
                                         <!--Show only days-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 14 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 2) { %> 
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 6 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) == 0) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
-                                        <!--Show years -->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
+                                        <!--Show only weeks-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 1 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 52) { %>
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
+                                        <% } %> 
+                                        <!--Show years-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) >= 1) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) Left</p>
                                         <% } %>
                                     </div>
                                 </div>
-                            <% } else {%>
+                            <% } else { %>
                                 <div class="showPrioAndDeadline">
                                     <div class="priority">
                                         <p><b>Priority: </b></p>
@@ -63,16 +70,16 @@
                                     <div class="deadline">
                                         <p ><b>Deadline:</b> <%= data[i].deadlineDate.getFullYear()%>-<%= data[i].deadlineDate.getMonth()+1%>-<%= data[i].deadlineDate.getDate()%></p>
 
-                                        <!--Show only weeks-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 2 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) <= 52) { %>
-                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
-                                        <% }  %>
                                         <!--Show only days-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 14 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 2) { %> 
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 6 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) == 0) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days+1) %> day(s) left</p>
                                         <% } %>
+                                        <!--Show only weeks-->
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 1 && Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) < 52) { %>
+                                            <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) %> week(s) left</p>
+                                        <% } %>
                                         <!--Show years and weeks-->
-                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/oneWeek) >= 52) { %> 
+                                        <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) >= 1) { %> 
                                             <p><b>Time Left:</b> <%= Math.floor((data[i].deadlineDate.getTime()-date.getTime())/year) %> year(s) left</p>
                                         <% } %>
                                     </div>

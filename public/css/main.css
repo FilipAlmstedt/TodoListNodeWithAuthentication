@@ -74,6 +74,8 @@
           flex-direction: column; }
           .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .taskHeader {
             text-decoration: underline; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .errorMessages {
+            color: red; }
           .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline {
             display: flex;
             flex-direction: column; }
@@ -203,6 +205,12 @@
       background-size: cover;
       background-position: center;
       color: #f3f3f3; }
+      .registerPageContainer .infoAndRegisterForm .infoDiv .goBackLink {
+        color: #f3f3f3;
+        transition: 0.3s; }
+      .registerPageContainer .infoAndRegisterForm .infoDiv .goBackLink:hover {
+        color: red;
+        transition: 0.5s; }
     .registerPageContainer .infoAndRegisterForm form {
       border: 10px solid black;
       padding: 5%; }

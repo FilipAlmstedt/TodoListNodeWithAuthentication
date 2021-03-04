@@ -22,6 +22,16 @@
                 background-size: cover;
                 background-position: center;
                 color: #f3f3f3;
+
+                .goBackLink {
+                    color: #f3f3f3;
+                    transition: 0.3s;
+                }
+                .goBackLink:hover {
+                    color: red;
+                    transition: 0.5s;
+                }
+
             }
     
             form {
