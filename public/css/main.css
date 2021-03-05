@@ -1,90 +1,274 @@
-body {
-  background-image: url("/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center; }
-  body h1 {
-    color: #fc4445;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-  body .container {
-    background-color: rgba(240, 240, 240, 0.6);
-    box-shadow: 10px 5px 5px rgba(240, 240, 240, 0.5);
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f3f3f3;
+  height: 100vh; }
+  .wrapper .headerAndIcon {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 5%; }
-    body .container .addItemWrapper {
+    padding-bottom: 1%;
+    align-items: center;
+    border: 10px solid black; }
+    .wrapper .headerAndIcon h1 {
+      color: #3c403d;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center; }
+  .wrapper .logout {
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    font-size: 30px;
+    transition: 0.3s ease-in-out; }
+  .wrapper .logout:hover {
+    color: lightgreen;
+    transition: color 0.3s ease-in-out; }
+  .wrapper .divWrapperForNewTaskAndShowList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+    .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
-      text-align: left; }
-      body .container .addItemWrapper .inputSection {
+      text-align: left;
+      width: 100%;
+      padding: 5%;
+      color: white;
+      background-image: url("/images/background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 10px solid black; }
+      .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper .inputSection {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         margin: 1%; }
-    body .container .buttonDiv {
+        .wrapper .divWrapperForNewTaskAndShowList .addItemWrapper .inputSection .errorMessages {
+          color: #ff6c5c; }
+    .wrapper .divWrapperForNewTaskAndShowList .todoListDiv {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-evenly;
-      margin: 1%; }
-      body .container .buttonDiv a {
-        color: white;
-        text-decoration: none; }
-    body .container .showTasks {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly; }
-      body .container .showTasks .showPrioAndDesc {
+      width: 100%;
+      padding: 2%;
+      background-color: #daded4;
+      border: 10px solid black; }
+      .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .buttonDiv {
         display: flex;
-        flex-direction: column;
-        justify-content: start;
-        text-align: left; }
-        body .container .showTasks .showPrioAndDesc .taskHeader {
-          text-decoration: underline; }
-        body .container .showTasks .showPrioAndDesc .showPrio {
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 1%; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .buttonDiv a {
+          color: black;
+          text-decoration: none;
+          transition: color 0.3s; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .buttonDiv a:hover {
+          color: white;
+          transition: color 0.3s; }
+      .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList {
+        display: flex;
+        flex-direction: column; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc {
+          display: flex;
+          flex-direction: column; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .taskHeader {
+            text-decoration: underline; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .warningMessage {
+            color: red; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline {
+            display: flex;
+            flex-direction: column; }
+            .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline .priority {
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              font-size: 25px; }
+              .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline .priority .highPriority {
+                color: #fc4445;
+                margin-left: 10px; }
+              .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline .priority .lowPriority {
+                color: blue;
+                margin-left: 10px; }
+            .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline .deadline {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showLinksForFeatures {
           display: flex;
           flex-direction: row;
-          justify-content: space-evenly; }
-          body .container .showTasks .showPrioAndDesc .showPrio .highPriority {
-            color: #fc4445; }
-          body .container .showTasks .showPrioAndDesc .showPrio .lowPriority {
-            color: blue; }
-      body .container .showTasks .showDeadlineAndFeatures {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; }
-        body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-evenly; }
-          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures input[type=checkbox] {
-            height: 25px;
-            width: 25px; }
-          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .trashIcon {
+          justify-content: flex-end; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showLinksForFeatures .trashIcon {
             color: #fc4445;
             transition: 0.3s; }
-          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .trashIcon:hover {
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showLinksForFeatures .trashIcon:hover {
             color: darkred;
             transition: color 0.3s ease-in-out; }
-          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .edit {
-            transition: 0.3s ease-in-out; }
-          body .container .showTasks .showDeadlineAndFeatures .showLinksForFeatures .edit:hover {
-            color: darkblue;
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showLinksForFeatures .edit {
+            transition: 0.3s; }
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showLinksForFeatures .edit:hover {
+            color: lightblue;
             transition: color 0.3s ease-in-out; }
-    body .container .pagination {
-      display: flex;
-      flex-direction: row;
-      justify-content: center; }
-      body .container .pagination a {
-        margin-left: 5%;
+      .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .pagination {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .pagination a {
+          margin-left: 5%;
+          font-size: 150%;
+          text-decoration: none;
+          transition: 0.3s ease-in-out; }
+        .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .pagination .currentPage {
+          text-decoration: underline; }
+      .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .emptyTodoOnPage {
+        margin-top: 2%;
         font-size: 150%;
         text-decoration: none;
         transition: 0.3s ease-in-out; }
-      body .container .pagination .currentPage {
-        text-decoration: underline; }
-    body .container .emptyTodoOnPage {
-      margin-top: 2%;
-      font-size: 150%;
-      text-decoration: none;
-      transition: 0.3s ease-in-out; }
+      .wrapper .divWrapperForNewTaskAndShowList .todoListDiv h2 {
+        text-align: center; }
+
+/*Extra pages*/
+.editTaskContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f3f3f3;
+  height: 100vh;
+  align-items: center; }
+  .editTaskContainer .addItemWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 100vh;
+    padding: 5%;
+    color: white;
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    border: 10px solid black; }
+    .editTaskContainer .addItemWrapper .errorMessages {
+      color: #ff6c5c; }
+
+.loginPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f3f3; }
+  .loginPageContainer .loginForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .loginPageContainer .loginForm .welcomeSection {
+      border: 10px solid black;
+      width: 50vh;
+      text-align: center;
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly; }
+    .loginPageContainer .loginForm form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 10px solid black;
+      padding: 5%;
+      width: 50vh; }
+      .loginPageContainer .loginForm form .errorMessages {
+        color: #ff6c5c; }
+      .loginPageContainer .loginForm form .notifyMessages {
+        color: blue; }
+      .loginPageContainer .loginForm form button {
+        margin-top: 10px; }
+
+.registerPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f3f3; }
+  .registerPageContainer .infoAndRegisterForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .registerPageContainer .infoAndRegisterForm .infoDiv {
+      border: 10px solid black;
+      padding: 2.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-image: url("/images/registerbackground.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #f3f3f3; }
+      .registerPageContainer .infoAndRegisterForm .infoDiv .goBackLink {
+        color: #f3f3f3;
+        transition: 0.3s; }
+      .registerPageContainer .infoAndRegisterForm .infoDiv .goBackLink:hover {
+        color: red;
+        transition: 0.5s; }
+    .registerPageContainer .infoAndRegisterForm form {
+      border: 10px solid black;
+      padding: 5%; }
+      .registerPageContainer .infoAndRegisterForm form .errorMessages {
+        color: #ff6c5c; }
+      .registerPageContainer .infoAndRegisterForm form button {
+        margin-top: 10px; }
+
+.resetPasswordContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f3f3; }
+  .resetPasswordContainer .resetPasswordWindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .resetPasswordContainer .resetPasswordWindow .passwordEmailForm {
+      text-align: center;
+      border: 10px solid black;
+      padding: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm h1 {
+        margin-bottom: 20px; }
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm button {
+        margin: 10px; }
+      .resetPasswordContainer .resetPasswordWindow .passwordEmailForm a {
+        text-decoration: none;
+        color: black; }
+    .resetPasswordContainer .resetPasswordWindow .resetPasswordForm {
+      border: 10px solid black;
+      padding: 5%;
+      text-align: center;
+      background-image: url("/images/resetpasswordbackground.jpg");
+      background-position: center;
+      background-size: cover;
+      color: white;
+      opacity: 0.8; }
+      .resetPasswordContainer .resetPasswordWindow .resetPasswordForm .errorMessages {
+        color: #ff6c5c; }
+      .resetPasswordContainer .resetPasswordWindow .resetPasswordForm button {
+        margin-top: 10px; }
+    .resetPasswordContainer .resetPasswordWindow .checkMail {
+      border: 10px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail h1 {
+        margin-bottom: 2%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail i {
+        margin-top: 5%;
+        margin-bottom: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail a {
+        text-decoration: none;
+        color: black;
+        margin-top: 5%; }
+      .resetPasswordContainer .resetPasswordWindow .checkMail a:hover {
+        color: white; }

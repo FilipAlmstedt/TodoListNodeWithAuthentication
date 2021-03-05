@@ -1,24 +1,46 @@
-<%- include("partials/header.ejs") %>
-    <div class="container"> 
-        <div class="addItemWrapper">
-            <form action="/edit" method="post">
+<%- include("partials/_header.ejs") %>
 
-                <label for="description">Edit Task:</label>
-                <input type="text" class="form-control" name="description" placeholder="<%=chosenItem.description%>"/>
+<div class="editTaskContainer">
+    <div class="addItemWrapper">
+        <h1>Edit your task!</h1>
+        <form action="/edit" method="post">
+
+            <label for="description">Edit Task:</label>
+            <input type="text" class="form-control" name="description" placeholder="<%=chosenItem.description%>"/>
+        
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Task description is required!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
             
-                <label for="priority">Priority (HIGH or LOW): </label>
-                <input type="text" class="form-control" name="priority" style="text-transform: uppercase;" placeholder="<%=chosenItem.priority%>"/>
+            <label for="priority">Priority (HIGH or LOW): </label>
+            <input type="text" class="form-control" name="priority" style="text-transform: uppercase;" placeholder="<%=chosenItem.priority%>"/>
+        
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Priority is required! Please type in high or low as a task')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+            <!--Send these hidden inputs to render the same page and what sort the user had from previous-->
+            <input type="text" name="sortedDate" value="<%=sortedDate%>" hidden />
+            <input type="text" name="page" value="<%=page%>" hidden />
             
-                
-                <label for="deadlineDate">Deadline date:</label>
-                <div class="input-group mb-3">
-                    <input type="date" class="form-control" name="deadlineDate" placeholder="<%=chosenItem.deadlineDate%>"/>
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary"><i class="far fa-edit edit"></i></button>
-                    </div>
+            <label for="deadlineDate">Deadline date:</label>
+            <div class="input-group mb-3">
+                <input type="date" class="form-control" name="deadlineDate" placeholder="<%=chosenItem.deadlineDate%>"/>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary"><i class="far fa-edit edit"></i></button>
                 </div>
-                <input type="text" name="id" value="<%=chosenItem._id %>" hidden>
-            </form>   
-        </div>
-</body>
-</html>
+            </div>
+
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Date is required!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+            
+            <input type="text" name="id" value="<%=chosenItem._id %>" hidden>
+        </form>   
+    </div>
+</div>

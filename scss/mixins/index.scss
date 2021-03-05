@@ -1,0 +1,191 @@
+//Index.ejs
+@mixin index {
+    .wrapper {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #f3f3f3;
+        height: 100vh;
+        
+        .headerAndIcon {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 1%;
+            align-items: center;
+            border: 10px solid black;
+
+            h1 {
+                color: #3c403d;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+            }
+        }
+
+        .logout {
+            text-align: center;
+            text-decoration: none;
+            margin-top: 2%;
+            font-size: 30px;
+            transition: 0.3s ease-in-out;
+        }
+        .logout:hover {
+            color: lightgreen;
+            transition: color 0.3s ease-in-out; 
+        }
+
+        .divWrapperForNewTaskAndShowList {
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            
+
+            .addItemWrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+                width: 100%;
+                padding: 5%;
+                color: white;
+                background-image: url("/images/background.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                
+                border: 10px solid black;
+
+                .inputSection {
+                    display: flex;
+                    
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    margin: 1%;
+
+                    .errorMessages {
+                        color: #ff6c5c;
+                    }
+                }
+            }
+
+            .todoListDiv{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 100%;
+                
+                padding: 2%;
+                background-color: #daded4;
+                border: 10px solid black;
+            
+                .buttonDiv {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    margin: 1%;
+                    a {
+                        color: black;
+                        text-decoration: none;
+                        transition: color 0.3s;
+                    }
+                    a:hover {
+                        color: white;
+                        transition: color 0.3s;
+                    }
+                }
+
+                .showTodoList {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    .showPrioAndDesc {
+                        display: flex;
+                        flex-direction: column;
+                        
+                        .taskHeader {
+                            text-decoration: underline;
+                        }
+                        .warningMessage {
+                            color: red;
+                        }
+
+                        
+                        .showPrioAndDeadline {
+                            display: flex;
+                            flex-direction: column;
+                            
+                            .priority {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-end;
+                                font-size: 25px;
+                                
+                                .highPriority {
+                                    color: #fc4445;
+                                    margin-left: 10px;
+                                }
+                                .lowPriority {
+                                    color: blue;
+                                    margin-left: 10px;
+                                }
+                            }
+                            .deadline {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-end;   
+                            }
+                        }
+                    }
+                
+                    .showLinksForFeatures{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        
+                        .trashIcon {
+                            color: #fc4445; 
+                            transition: 0.3s;
+                        }
+                        .trashIcon:hover {
+                            color: darkred;
+                            transition: color 0.3s ease-in-out;
+                        }
+                        .edit {
+                            transition: 0.3s;
+                        }
+                        .edit:hover {
+                            color: lightblue;
+                            transition: color 0.3s ease-in-out;
+                        }   
+                    }
+                    
+                }
+
+                .pagination {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    a {
+                        margin-left: 5%;
+                        font-size: 150%;
+                        text-decoration: none;
+                        transition: 0.3s ease-in-out;
+                    }
+                    .currentPage {
+                        text-decoration: underline;
+                    }
+                }
+                .emptyTodoOnPage {
+                    margin-top: 2%;
+                    font-size: 150%;
+                    text-decoration: none;
+                    transition: 0.3s ease-in-out;
+                }
+                h2 {
+                    text-align: center;
+                }
+            }   
+        }
+    }
+}

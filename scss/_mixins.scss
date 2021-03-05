@@ -1,0 +1,14 @@
+//import styling from index.ejs and addItem.ejs
+@import './mixins/index';
+
+//import styling from editItem.ejs
+@import './mixins/editItem';
+
+//import styling from login.ejs
+@import './mixins/login';
+
+//import styling from registerAccount.ejs
+@import './mixins/registerAccount';
+
+//import styling from resetPasswordGetEmailForm.ejs, checkMial.ejs and resetPasswordForm.ejs
+@import './mixins/resetPassword'

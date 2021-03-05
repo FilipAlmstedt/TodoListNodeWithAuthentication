@@ -1,5 +1,4 @@
 const express = require("express");
-const Todo = require("../model/todo");
 
 //add Controllers
 const showTodoList = require("../controller/todoFeatures/showTodoController");
@@ -7,21 +6,26 @@ const addTodoItem = require("../controller/todoFeatures/addTodoController");
 const {renderEditTodoItem,editTodoItem} = require("../controller/todoFeatures/editTodoController");
 const deleteTodoItem = require("../controller/todoFeatures/deleteTodoController");
 
-const todoFeaturesRoute = express.Router();
+//add middleware 
+const verifyUser = require("../middleware/verifyUser");
+
+const router = express.Router();
 
 //show the todo-list
-todoFeaturesRoute.get("/", showTodoList);
-
+router.get("/", verifyUser, showTodoList);
 //post request to add item to DB 
-todoFeaturesRoute.post("/", addTodoItem)
-
+router.post("/", verifyUser, addTodoItem)
 //get request to find specific item to update
-todoFeaturesRoute.get("/edit/:id", renderEditTodoItem);
-
+router.get("/edit/:id", verifyUser, renderEditTodoItem);
 //Post request to then update that item in the list
-todoFeaturesRoute.post("/edit", editTodoItem);
-
+router.post("/edit", verifyUser, editTodoItem);
 //Get request to delete specific item
-todoFeaturesRoute.get("/delete/:id", deleteTodoItem);
+router.get("/delete/:id", verifyUser, deleteTodoItem);
 
-module.exports = todoFeaturesRoute;
+//When user click on the log out link, cookies with token is cleared.
+router.get("/logout", (req, res) => {
+    res.clearCookie("jwtToken").redirect("/login");
+})
+
+
+module.exports = router;

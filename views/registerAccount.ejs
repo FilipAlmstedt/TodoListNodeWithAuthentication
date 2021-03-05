@@ -1,0 +1,50 @@
+<%- include("partials/_header.ejs") %>
+
+<div class="registerPageContainer">
+    <div class="infoAndRegisterForm">
+        <div class="infoDiv">
+            <h1>Get Started!</h1>
+            <a href="/" class="goBackLink">Already have an account?</a>
+        </div>
+        <form action="/register" method="post">
+
+            <h3>Register!</h3>
+
+            <label for="name">Username:</label>
+            <div class="input-group">
+                <input class="form-control" type="text" name="name" placeholder="Username">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <% for(let i=0; i<errors.length; i++) { %>
+                <% if(errors[i].includes(' Name is required!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+
+            <label for="email">Email:</label>
+            <div class="input-group">
+                <input class="form-control" type="email" name="email" placeholder="Email">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <% for(let i=0; i<errors.length; i++) { %> 
+                <% if(errors[i].includes(' Email is required!')) {  %>
+                <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>  
+            
+            <label for="password">Password:</label>
+            <div class="input-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            </div>
+            <% for(let i=0; i<errors.length; i++) { %> 
+                <% if(errors[i].includes(' Password is required!')) {  %>
+                    <p class="errorMessages"> <%= errors[i] %> </p>
+                <% } %>
+            <% } %>    
+
+            <button type="submit" class="btn btn-outline-dark">Create account!</button>
+
+        </form>
+    </div>
+</div>

@@ -1,13 +1,12 @@
 const Todo = require("../../model/todo");
 
-
 const deleteTodoItem = async (req,res) => {
-    const theWholeTodoList = await Todo.find().countDocuments();
-    const showDataPerClick = 3;
-    const totalPages = Math.ceil(theWholeTodoList/showDataPerClick);
+   
+    const {sortedDate, page} = req.query;
 
     await Todo.deleteOne({_id:req.params.id})
-    res.redirect("/?page="+totalPages);
+
+    res.redirect("/?page="+page+"&&sortedDate="+sortedDate);
 
 }
 
