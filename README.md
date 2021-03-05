@@ -4,6 +4,10 @@ I also redesigned the app so it's looks and works a bit better than last time in
 
 Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
 
+### Styling:
+Styling was made with a combination of SASS, using the flexbox layout model and Bootstrap.
+
+
 -----------------
 
 ### Features:
@@ -20,6 +24,8 @@ Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
 ###### New features for the second assignment:
 
 - User needs to create an account to use the Todo-list 
+- The user needs an account in order to use the todo-list
+- The user will have there own list o add tasks to 
 - User can now reset the password for his/her account via gmail
 
 -----------------
@@ -36,8 +42,13 @@ You also have to create a `.env` and you need the following to make it work:
 - An gmail address for an account to use for nodemailer
 - The password for the gmail account you need to use for nodemailer
 
-Now you're all set
+Now you're all set!
 
 Have fun!
 
-OBS! App is not responsive! Made for laptop screens and bigger!
+#### OBS! 
+App is not responsive! Made for laptop screens and bigger!
+
+------------------
+
+

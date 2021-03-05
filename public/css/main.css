@@ -74,7 +74,7 @@
           flex-direction: column; }
           .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .taskHeader {
             text-decoration: underline; }
-          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .errorMessages {
+          .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .warningMessage {
             color: red; }
           .wrapper .divWrapperForNewTaskAndShowList .todoListDiv .showTodoList .showPrioAndDesc .showPrioAndDeadline {
             display: flex;

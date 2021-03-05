@@ -54,6 +54,7 @@ const submitResetPasswordGetEmailPage = async (req, res) => {
 //Update the new password for the user
 const submitResetPasswordFormPage = async (req, res) => {
 
+    //Reset errormessage array 
     errors = [];
 
     const {email, password} = req.body;
@@ -72,6 +73,7 @@ const submitResetPasswordFormPage = async (req, res) => {
     user.password = hashedPassword;
     await user.save();
 
+    //Notify user that a sucessfull change of password happened. Is displayed in the login.ejs
     req.flash('notify', 'Password has now been changed!')
     res.redirect("/login");
 

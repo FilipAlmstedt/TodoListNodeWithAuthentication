@@ -5,6 +5,7 @@ const todoSchema = new mongoose.Schema({
     description: {type: String, required:true}, 
     priority: {type: String, required:true, uppercase: true},
     deadlineDate: {type: Date, required: true},
+    /* Store userID to the right task */
     user: [
         {
             type:mongoose.Schema.Types.ObjectId,

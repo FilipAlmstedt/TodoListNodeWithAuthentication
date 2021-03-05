@@ -8,7 +8,7 @@ const addTodoItem = async (req,res) => {
     let totalTodos;
     let date = new Date();
 
-    //Variables needed for calculating time left to deadline
+    //Variables needed for calculating time left to deadline, this is in seconds
     let oneWeek = 1000*60*60*24*7;
     let year = 1000*60*60*24*7*52;
     let days = 1000*60*60*24;
@@ -18,6 +18,7 @@ const addTodoItem = async (req,res) => {
     
     totalTodos = todoCount;
 
+    //Find all task with the logged in userID
     const data = await Todo.find({user: req.user.user._id}).skip((page-1)*showDataPerClick).limit(showDataPerClick).sort({deadlineDate: sortedDate}); 
 
 
@@ -35,7 +36,6 @@ const addTodoItem = async (req,res) => {
         errors.push(" Date is required!");
     }  
     
-
     try {
         const newTask = await new Todo({
             description: description,

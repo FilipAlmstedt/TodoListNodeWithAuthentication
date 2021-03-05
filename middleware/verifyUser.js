@@ -8,8 +8,10 @@ const verifyToken = (req,res,next) => {
     const token = req.cookies.jwtToken;
 
     try {
+        //Verify if validuser exists
         const validUser = jwt.verify(token, process.env.SECRET_KEY);
         if(validUser) {
+            //Store the user data in validUser
             req.user = validUser;
         }
         

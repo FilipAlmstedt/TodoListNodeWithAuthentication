@@ -1,3 +1,4 @@
+<!--Import styling for all the stylesheets and js-files-->
 <%- include("partials/_header.ejs") %>
 <body>
     <div class="wrapper">
@@ -29,9 +30,10 @@
                     <div class="showTodoList">
                         <div class="showPrioAndDesc">
 
+                            <!-- Warning when the task has 3 days left, this message pops up reminding the user to get it done before it dissapears -->
                             <% if(Math.floor((data[i].deadlineDate.getTime()-date.getTime())/days) <= 3) { %>
-                                <h6 class="errorMessages">Warning!!</h6> 
-                                <h6 class="errorMessages">This tasks deadline is near! This task will delete itself when the deadline comes. Make sure you get it done!!!</h6>
+                                <h6 class="warningMessage">Attention!!</h6> 
+                                <h6 class="warningMessage">This tasks deadline is near! This task will delete itself when the deadline comes. Make sure you get it done!!!</h6>
                             <% } %>
 
                             <h6 class="taskHeader">Task to do:</h6>
@@ -88,6 +90,7 @@
                         </div>
                        
                         <div class="showLinksForFeatures">
+                            <!--Forms to transfer pagniation page so the app remembers where the user is transported back to the right page again -->
                             <form action="/edit/<%= data[i]._id %>" method="GET">
                                 <input type="text" name="sortedDate" value="<%=sortedDate%>" hidden />
                                 <input type="text" name="page" value="<%=currentPage%>" hidden />
@@ -108,7 +111,8 @@
                     </div>
                     <hr>
                 <% } %>
-
+                
+                <!--Handling of pagination-->
                 <% if(data.length >= 1) { %>
                     <div class="pagination">
                         <% if(currentPage !== 1 && previousPage !== 1) { %>
@@ -117,7 +121,8 @@
                         <% if(hasPreviousPage) { %>
                             <a href="/?page=<%=previousPage %>&&sortedDate=<%=sortedDate%>"><%=previousPage %></a>
                         <% } %>
-                        <a href="/?page=<%=currentPage %>&&sortedDate=<%=sortedDate%>" class="currentPage"> <%= currentPage %> </a>
+                        <!--Class currentPage{ text-decoration: underline; }-->
+                        <a href="/?page=<%=currentPage %>&&sortedDate=<%=sortedDate%>" class="currentPage"><%= currentPage %></a>
                         <% if(hasNextPage) {  %>
                             <a href="/?page=<%=nextPage %>&&sortedDate=<%=sortedDate%>" > <%= nextPage %>  </a>
                         <% } %>
@@ -126,6 +131,7 @@
                         <% } %>
                     </div>
                 <% } else {%>
+                    <!--If no pages exists or the user deleted all tasks in the page, these messages will pop up-->
                     <% if(previousPage == 0) { %>
                         <hr>
                         <h2>Empty list! Please add a task!</h2>
