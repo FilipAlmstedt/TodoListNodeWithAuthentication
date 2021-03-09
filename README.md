@@ -25,15 +25,14 @@ Styling was made with a combination of SASS, using the flexbox layout model and 
 
 - User needs to create an account to use the Todo-list 
 - The user needs an account in order to use the todo-list
-- The user will have there own list o add tasks to 
-- User can now reset the password for his/her account via gmail
+- The user will have their own list to add tasks to 
+- User can now reset the password for his/her account via gmail using nodemailer package in Node
 
 -----------------
 
 ### Getting Started
 
-To install, clone project using `git clone` and open your terminal. To install all packages type `npm install` in the project folder and then use the command `npm start` to start and test the app.
-Note that in order to use it you need a mongoose account to link your database with the project. 
+To install, clone project using `git clone` and open your terminal. To install all packages type `npm install` in the command prompt. Make sure you are in the project folder before. 
 
 You also have to create a `.env` and you need the following to make it work:
 - URL to a datadase cluster via mongodb, you need an account, if you don't have an account get one at https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_emea_sweden_search_core_brand_atlas_desktop&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624566&gclid=CjwKCAiAp4KCBhB6EiwAxRxbpOt5NtJ2jERom62EFi6wQF_r4ow0KCNEdzvhP6g27DEXiBuRj-Pp7xoCWboQAvD_BwE
@@ -41,6 +40,9 @@ You also have to create a `.env` and you need the following to make it work:
 - A made up secret key to use for the jsonwebtoken
 - An gmail address for an account to use for nodemailer
 - The password for the gmail account you need to use for nodemailer
+
+To the start and run the app, use `npm start`. If you see "App is up and running", the app is running fine.
+To compile the css if you want to restyle the site, use command `npm run index-css`.
 
 Now you're all set!
 
