@@ -1,6 +1,6 @@
 # Todo-list with required authentication 
-Using Express, MongoDB as the database through Mongoose with the addition that the user now needs an account to be able to use the app.
-I also redesigned the app so it's looks and works a bit better than last time in my opinion
+Using Express, EJS, MongoDB as the database through Mongoose etc to make an app where the user can use a todo-list.
+The user needs an account in order to use the app using authentication features with Node.js. 
 
 Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
 
@@ -12,7 +12,7 @@ Styling was made with a combination of SASS, using the flexbox layout model and 
 
 ### Features:
 
-###### The feature for the last Todo-list is the same:
+###### Todo Features:
 
 - User can add a task
 - User can edit a task
@@ -21,7 +21,7 @@ Styling was made with a combination of SASS, using the flexbox layout model and 
 - User can sort in ascending and descending order by the deadline date
 - Pagination is used so the user and flick between pages. 3 task are shown per page
 
-###### New features for the second assignment:
+###### Authentication features:
 
 - User needs to create an account to use the Todo-list 
 - The user needs an account in order to use the todo-list
