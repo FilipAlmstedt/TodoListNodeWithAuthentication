@@ -1,5 +1,5 @@
 # Todo-list with required authentication 
-Using Express, EJS, MongoDB as the database through Mongoose etc to make an app where the user can use a todo-list.
+Using Express, EJS, MongoDB as the database through Mongoose etc. to make an app where the user can use a todo-list.
 The user needs an account in order to use the app using authentication features with Node.js. 
 
 Was made as second assignment for the class in 'Dynamisk Webbutveckling'.
